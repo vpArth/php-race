@@ -1,0 +1,23 @@
+{
+  "name": "arth/race-prevention",
+  "description": "Set of class to manage race conditions",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexander Deider",
+      "email": "arth.inbox+composer@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Arth\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "require": {}
+}
