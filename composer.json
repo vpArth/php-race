@@ -19,5 +19,7 @@
       "Tests\\": "tests"
     }
   },
-  "require": {}
+  "require": {
+    "php": ">=7"
+  }
 }
