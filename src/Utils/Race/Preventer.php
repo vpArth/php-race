@@ -9,6 +9,8 @@ class Preventer
     FilePreventer::class,
   ];
   private static $availableClass;
+
+  /** @throws FailException */
   public static function get(): IPreventer {
     if (self::$availableClass) {
       return new self::$availableClass();
@@ -21,5 +23,18 @@ class Preventer
       }
     }
     throw new FailException("No available race prevention methods");
+  }
+  /** @throws FailException */
+  public static function guard($id, callable $protected)
+  {
+    $race = static::get();
+    if ($race->lock($id)) {
+      try {
+        return $protected();
+      } finally {
+        $race->release();
+      }
+    }
+    return null;
   }
 }
